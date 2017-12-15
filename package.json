@@ -1,0 +1,14 @@
+{
+  "name": "artful",
+  "version": "0.0.1",
+  "description": "My discord selfbot",
+  "main": "artful.js",
+  "scripts": {
+    "start": "node ./artful.js"
+  },
+  "author": "Kye",
+  "license": "MIT",
+  "dependencies": {
+    "discord.js": "^11.2.1"
+  }
+}
