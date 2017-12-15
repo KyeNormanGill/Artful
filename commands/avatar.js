@@ -1,8 +1,12 @@
 const { parseUser } = require('../funcs.js');
+const { MessageAttachment } = require('discord.js');
 
 module.exports = {
 	name: 'avatar',
 	run: (client, message, args) => {
-		message.reply(args ? parseUser(args).avatarURL : message.author.avatarURL);
+		if (!args) return message.channel.send({ files: [new MessageAttachment(message.author.displayAvatarURL({ format: 'png', size: 1024 }), 'file.jpg')] });
+		const user = parseUser(message, args);
+		if (!user) return;
+		return message.channel.send({ files: [new MessageAttachment(user.displayAvatarURL({ format: 'png', size: 1024 }), 'file.jpg')] });
 	}
 }
