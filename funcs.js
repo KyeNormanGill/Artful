@@ -22,5 +22,10 @@ module.exports = {
 
 			client.commands.set(cmd.name, cmd);
 		}
+	},
+	parseUser: (message, args) => {
+		return message.client.users.get(args)
+			|| message.client.users.find(userino => userino.username.toLowerCase().includes(args.toLowerCase()))
+			|| message.mentions.users.first();
 	}
 }
