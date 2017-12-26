@@ -1,3 +1,4 @@
 module.exports = {
-	token: ""
+	token: "",
+	embedColour: 0xffffff
 }

@@ -26,6 +26,13 @@ module.exports = {
 	parseUser: (message, args) => {
 		return message.client.users.get(args)
 			|| message.client.users.find(userino => userino.username.toLowerCase().includes(args.toLowerCase()))
-			|| message.mentions.users.first();
+			|| message.mentions.users.first()
+			|| null;
+	},
+	parseMember: (message, args) => {
+		return message.guild.members.get(args)
+			|| message.guild.members.find(userino => userino.displayName.toLowerCase().includes(args.toLowerCase()))
+			|| message.mentions.members.first()
+			|| null;
 	}
 }
