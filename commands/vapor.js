@@ -10,7 +10,7 @@ function _stringToFullWidth(string) {
 }
 
 module.exports = {
-	name: 'ping',
+	name: 'vapor',
 	run: (client, message, args) => {
 		if (!args) return;
 		return message.edit(_stringToFullWidth(args));
