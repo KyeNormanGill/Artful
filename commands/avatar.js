@@ -1,12 +1,18 @@
+const { embedColour } = require('../config.js');
 const { parseUser } = require('../funcs.js');
-const { MessageAttachment } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 
 module.exports = {
 	name: 'avatar',
 	run: (client, message, args) => {
-		if (!args) return message.edit(new MessageAttachment(message.author.displayAvatarURL({ format: 'png', size: 1024 }), 'file.jpg'));
+		const embed = new MessageEmbed().setColor(embedColour);
+		if (!args) {
+			embed.setImage(message.author.displayAvatarURL({ size: 1024 }));
+			return message.edit({ embed });
+		}
 		const user = parseUser(message, args);
 		if (!user) return;
-		return message.edit(new MessageAttachment(user.displayAvatarURL({ format: 'png', size: 1024 }), 'file.jpg'));
+		embed.setImage(user.displayAvatarURL({ size: 1024 }))
+		return message.edit({ embed });
 	}
 }
