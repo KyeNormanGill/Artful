@@ -1,4 +1,3 @@
-const { parseMember } = require('../funcs.js');
 const { MessageEmbed } = require('discord.js');
 const { embedColour } = require('../config.js');
 const { stripIndents } = require('common-tags');
@@ -17,7 +16,7 @@ module.exports = {
 			return message.edit({ embed });
 		}
 
-		const user = parseMember(message, args);
+		const user = client.parseMember(message, args);
 		if (!user) return;
 
 		embed.setDescription(stripIndents`
