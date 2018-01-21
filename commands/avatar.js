@@ -8,6 +8,5 @@ module.exports = {
 		const user = client.parseUser(message, args) || message.author;
 		embed.setImage(user.displayAvatarURL({ size: 1024 }))
 		return message.edit({ embed });
-
 	}
 }

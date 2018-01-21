@@ -32,6 +32,5 @@ module.exports = {
 		}).catch(err => {
 			return message.edit(`**Code:**\n\`\`\`js\n${args}\n\`\`\`**An error occured:**\n\`\`\`js\n${err.message || err}\n\`\`\``);
 		});
-
 	}
 }
